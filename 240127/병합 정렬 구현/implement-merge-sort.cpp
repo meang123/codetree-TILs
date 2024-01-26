@@ -2,13 +2,17 @@
 #include <vector>
 #include <algorithm>
 using namespace std;
-/*
+
 
 //메모리 초과가 나와서 그냥 sort알고리즘 사용해서 해결.. 
 
 vector<int> merge_arr(vector<int> &vec)
 {
+	if (vec.size() == 1)
+	{
+		return vec;
 
+	}
     int mid = vec.size()/2;
 
     vector<int> left_arr(vec.begin(),vec.begin()+mid);
@@ -19,7 +23,7 @@ vector<int> merge_arr(vector<int> &vec)
 
     
     vector<int> sum_arr;
-
+    sum_arr.reserve(1000000);
 
 
     int idx_l=0,idx_r=0;
@@ -32,24 +36,24 @@ vector<int> merge_arr(vector<int> &vec)
             idx_r++;
             continue;
         }
-        else if(idx_r==sorted_right.size())
+        if(idx_r==sorted_right.size())
         {
             sum_arr.emplace_back(sorted_left[idx_l]);
             idx_l++;
             continue;
         }
 
-        if(sorted_left[idx_l]<=sorted_right[idx_r])
-        {
-            sum_arr.emplace_back(sorted_left[idx_l]);
-            idx_l++;
+		if (sorted_right[idx_r] <= sorted_left[idx_l])
+		{
+			sum_arr.emplace_back(sorted_right[idx_r]);
+			idx_r++;
+		}
+		else
+		{
+			sum_arr.emplace_back(sorted_left[idx_l]);
+			idx_l++;
 
-        }
-        else
-        {
-            sum_arr.emplace_back(sorted_right[idx_r]);
-            idx_r++;
-        }
+		}
 
     }
     return sum_arr;
@@ -59,11 +63,13 @@ vector<int> merge_arr(vector<int> &vec)
 int main() 
 {
     // 여기에 코드를 작성해주세요.
+    ios::sync_with_stdio(0);
+	cin.tie(0);
     int n=0;
     vector<int> vec;
     vector<int> result;
-    vec.reserve(100000);
-    result.reserve(100000);
+    vec.reserve(1000000);
+    result.reserve(1000000);
     
     cin>>n;
     for(int i=0;i<n;i++)
@@ -78,8 +84,9 @@ int main()
         cout<<e<<' ';
     }
     return 0;
-}*/
-#include <vector>
+}
+
+/*#include <vector>
 #include <iostream>
 
 using namespace std;
@@ -136,3 +143,4 @@ int main() {
     }
     return 0;
 }
+*/
