@@ -1,7 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <queue>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
 //배열로 원형 큐 해결해보기 
@@ -9,6 +6,8 @@ using namespace std;
 int main() 
 {
     // 여기에 코드를 작성해주세요.
+    ios::sync_with_stdio(0);
+	cin.tie(0);
     int n=0,k=0;
     cin>>n>>k;
 
