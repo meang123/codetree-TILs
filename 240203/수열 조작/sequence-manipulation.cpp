@@ -11,22 +11,18 @@ int recur_deque(vector<int> &&arr)
         return arr[0];
     }
     vector<int> temp;
+
     if(arr.size()%2!=0)
     {
         temp.emplace_back(arr.back());
     }
+
     //extract odd index
     for(int i=1;i<arr.size();i+=2)
     {
         temp.emplace_back(arr[i]);
     }
 
-
-    // cout<<"---debug---\n";
-    // for(auto&e:temp)
-    // {
-    //     cout<<e<<endl;
-    // }
     return recur_deque(move(temp));
 }
 int main() 
