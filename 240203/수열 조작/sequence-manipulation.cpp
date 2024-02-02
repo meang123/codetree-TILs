@@ -5,11 +5,7 @@ using namespace std;
 
 int recur_deque(vector<int> &&arr)
 {
-    //base case 
-    if(arr.size()==1)
-    {
-        return arr[0];
-    }
+
     vector<int> temp;
 
     if(arr.size()%2!=0)
@@ -22,7 +18,11 @@ int recur_deque(vector<int> &&arr)
     {
         temp.emplace_back(arr[i]);
     }
-
+    //base case 
+    if(temp.size()==1)
+    {
+        return temp[0];
+    }
     return recur_deque(move(temp));
 }
 int main() 
